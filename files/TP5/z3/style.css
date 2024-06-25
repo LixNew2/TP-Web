@@ -1,0 +1,28 @@
+html, body {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#left_container {
+    background-color: rgb(52, 190, 190);
+    width: 50%;
+    height: 90%;
+    position: absolute;
+}
+
+#right_container {
+    background-color: rgb(153, 0, 255);
+    width: 50%;
+    height: 90%;
+    position: absolute;
+    right: 0%; /*left : 50;*/
+}
+
+#bot_container {
+    background-color: rgb(255, 64, 31);
+    height: 10%;
+    width: 100%;
+    position: absolute;
+    top : 90%;
+}

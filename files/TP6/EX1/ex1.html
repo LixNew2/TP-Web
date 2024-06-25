@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My first HTML page</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <p id="def1"></p>
+    <p>Hi, i'm a <span class="word1">paragraphe</span></p>
+    <p>Hi, i'm a paragraphe</p>
+    <p>Hi, i'm a paragraphe</p>
+    <p>Hi, i'm a paragraphe</p>
+    <p>Hi, i'm a <span class="word1">paragraphe</span></p>
+    <p>Hi, i'm a paragraphe</p>
+    <p>Hi, i'm a paragraphe</p>
+    <p>Hi, i'm a paragraphe</p>
+    <p>Hi, i'm a <span class="word1">paragraphe</span></p>
+
+    <script>
+        var word1 = document.getElementsByClassName("word1");
+        var d = document.createElement("div");
+
+        for(word in word1){
+            word1[word].addEventListener("mouseover", function(e){
+            d.innerHTML = "Ceci est un paragraphe";
+            d.style.border = "1px solid black"; 
+            d.style.position = "absolute";
+            d.style.left = e.x + "px";
+            d.style.top = e.y + "px";
+            d.style.backgroundColor = "white";
+            document.body.appendChild(d);
+            })
+
+            word1[word].style.color = "blue";
+
+            word1[word].addEventListener("mouseout", function(){
+                d.remove();
+
+            })
+        }
+    </script>
+</body>
+</html>

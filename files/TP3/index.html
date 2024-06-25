@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Memory Game</title>
+        <link rel="stylesheet" href="./style/style.css">
+    </head>
+    <body>
+        <img id="logo" src="./images/logo.png"></img>
+        <div class="container"></div>
+        <div id="stats">
+            <p class="stats_text">Try : <span id="try">0</span></p>
+            <p class="stats_text">Best score : <span id="best_score"></span></p>
+            <button id="btn" onclick="location.reload()">Restart</button>
+        </div>
+    <script>
+        
+        var show = [];
+        var selected_img = [];
+        var found_imgs = [];
+        var imgs = [1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10];
+        imgs.sort(() => Math.random() - 0.5);
+        var container = document.getElementsByClassName("container")[0];
+        var trys = document.getElementById("try");
+        var best_score = document.getElementById("best_score");
+        var points = 0;
+
+        if(localStorage.getItem("best_score") == null){
+            localStorage.setItem("best_score", 0);
+        }
+
+        best_score.innerHTML = localStorage.getItem("best_score");
+
+        for(i in imgs){
+            var image = document.createElement("img");
+            image.id = imgs[i];
+            image.src = "./images/img_hide.jpg";
+            image.className = "image";
+
+            image.onclick = function(){
+                var id = this.id;
+                this.src = "./images/img" + id + ".jpg";
+                
+                if(selected_img.length == 2){
+                    selected_img = [];
+                }
+
+                selected_img.push(id)
+                if(selected_img.length == 2){
+                    trys.innerHTML = parseInt(trys.innerHTML) + 1;
+                    if(selected_img[0] != selected_img[1]){
+                        let containerImages = container.querySelectorAll('.image');
+                        setTimeout(() => {
+                            console.log(selected_img);
+                            for(let img of containerImages){
+                                if(img.id == selected_img[0] || img.id == selected_img[1]){
+                                    img.src = "./images/img_hide.jpg";
+                                }
+                            }
+                        }, 500);
+                    } else {
+                        points++;
+                        if(points == 10){
+                            alert("You win with " + trys.innerHTML + " trys");
+                            if(trys.innerHTML < localStorage.getItem("best_score") || localStorage.getItem("best_score") == 0){
+                                best_score.innerHTML = trys.innerHTML;
+                                localStorage.setItem("best_score", parseInt(trys.innerHTML));
+                            }
+                        }
+                    }
+                }
+            }
+                
+            container.appendChild(image);
+        }
+    </script>
+</html>

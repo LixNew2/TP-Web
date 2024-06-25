@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Zonage</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="top_container"></div>
+        <div id="top2_container"></div>
+        <div id="grid_bg"></div>
+        <div id="grid_container"></div>
+        <div id="bot_container"></div>
+    <script>
+        var div = document.getElementById("grid_container");
+        for (var i = 0; i < 16; i++) {
+            var d = document.createElement("div");
+            if(i == 0 || i == 1 || i == 4 || i == 5){
+                d.style.backgroundColor = "red";
+            }else if(i == 2 || i == 3 || i == 6 || i == 7){
+                d.style.backgroundColor = "yellow";
+            }else if(i == 8 || i == 9 || i == 12 || i == 13){
+                d.style.backgroundColor = "green";
+            }else{
+                d.style.backgroundColor = "blue";
+            }
+            div.appendChild(d);
+        }
+    </script>
+    </body>
+</html>

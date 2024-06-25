@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My first HTML page</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="timer">
+        <img id="logo" src="./omega.png"></img>
+        <h1 id="title">JUSQU'AU JEUX PARALYMPIQUE<br>DE PARIS 2024</h1>
+        <table>
+            <tr>
+                <td id="days">00</td>
+                <td id="hours">00</td>
+                <td id="minutes">00</td>
+                <td id="secondes">00</td>
+            </tr>
+            <tr>
+                <td class="label">Days</td>
+                <td class="label">Hours</td>
+                <td class="label">Min</td>
+                <td class="label">Sec</td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        var days = document.getElementById("days");
+        var hours = document.getElementById("hours");
+        var minutes = document.getElementById("minutes");
+        var secondes = document.getElementById("secondes");
+
+        function timer(startDate, startTime){
+            const now = new Date().getTime();
+            const endTime = new Date(startDate + "T" + startTime + ":00").getTime();
+            const delatTime = endTime - now;
+
+            const daysValue = Math.floor(delatTime / (1000 * 60 * 60 * 24))
+            const hoursValue = Math.floor(delatTime % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
+            const minutesValue = Math.floor(delatTime % (1000 * 60 * 60) / (1000 * 60));
+            const secondesValue = Math.floor(delatTime % (1000 * 60) / 1000);
+            
+            days.innerHTML = daysValue.toString().padStart(2, "0");
+            hours.innerHTML = hoursValue.toString().padStart(2, "0");
+            minutes.innerHTML = minutesValue.toString().padStart(2, "0");
+            secondes.innerHTML = secondesValue.toString().padStart(2, "0");
+
+        }
+
+        setInterval(function() {
+            timer("2024-07-26", "19:30")
+        }, 1000);
+    </script>
+</body>
+</html>

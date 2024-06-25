@@ -1,0 +1,45 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10%;
+}
+
+#timer{
+    height: 10%;
+    width: 45rem;
+    display: flex;
+    align-items: center;
+    background-color: rgb(10, 102, 240);
+    color: white;
+    box-shadow: 3px 3px 2px 1px rgba(0, 0, 0, 0.295);
+    border-radius: 50px;
+    justify-content: space-around;
+    padding-left: 2%;
+    padding-right: 2%;
+    text-align: center;
+}
+
+#timer .label{
+    font-weight:bold;
+}
+
+td {
+    font-family:'Segoe UI';
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 30px
+}
+
+#title{
+    font-family:'Segoe UI';
+    font-size: 15px;
+    color: rgb(255, 255, 255);
+
+}
+
+
+#logo{
+    height: 50px;
+}

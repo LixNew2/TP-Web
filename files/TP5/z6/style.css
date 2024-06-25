@@ -1,0 +1,43 @@
+html, body {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#top_container {
+    background-color: rgb(52, 190, 190);
+    width: 100%;
+    height: 10%;
+}
+
+#top2_container {
+    background-color: rgb(153, 0, 255);
+    width: 100%;
+    height: 5%;
+    right: 0%; /*left : 50;*/
+}
+
+#grid_container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    height: 71%;
+    width: 96%;
+    margin: 2%;
+    position: absolute;
+}
+
+#bot_container {
+    background-color: rgb(52, 190, 190);
+    height: 10%;
+    width: 100%;
+    position: absolute;
+    top : 90%;
+}
+
+#grid_bg{
+    background-color: pink;
+    height: 80%;
+    width: 100%;
+    position: absolute;
+}

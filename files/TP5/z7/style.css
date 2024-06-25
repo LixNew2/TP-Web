@@ -1,0 +1,45 @@
+html, body {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#top_container {
+    background-color: rgb(255, 64, 31);
+    height: 10%;
+    width: 100%;
+}
+
+#left_container {
+    background-color: rgb(0, 162, 255);
+    width: 20%;
+    height: 90%;
+    position: absolute;
+}
+
+#center_container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+    width: 60%;
+    height: 90%;
+    position: absolute;
+    left: 20%;
+}
+
+#right_container {
+    background-color: rgb(0, 162, 255);
+    width: 20%;
+    height: 90%;
+    position: absolute;
+    right: 0%; /*left : 80;*/
+}
+
+#bot_container {
+    background-color: yellow;
+    height: 10%;
+    width: 60%;
+    left: 20%;
+    bottom: 0%;
+    position: absolute;
+}

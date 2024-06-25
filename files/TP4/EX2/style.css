@@ -1,0 +1,34 @@
+th, td {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+code {
+    background-color: #f4f4f4;
+    padding: 2px;
+    font-family: monospace;
+}
+
+.logo{
+    width: 64px;
+}
+
+.logo:hover, .website:hover{
+    cursor: pointer;
+    text-decoration: none;
+}
+
+caption{
+    caption-side: bottom;
+    text-align: left;
+    font-style: italic;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}

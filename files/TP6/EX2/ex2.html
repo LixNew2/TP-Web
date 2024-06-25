@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My first HTML page</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <input id="name"> Prenom </input><br>
+    <input id="last_name"> Nom </input><br>
+    <input id="etude"> Etudes </input><br>
+    <button id="send" onclick="show_array()">Envoyer</button>
+    <table></table>
+
+    <script>
+        function show_array(){
+            
+            var name = document.getElementById("name").value;
+            var last_name = document.getElementById("last_name").value;
+            var etude = document.getElementById("etude").value;
+            
+            var array = document.createElement("table");
+            var headerRow = document.createElement("tr");
+            var headers = ["Nom", "Prénom", "Étude"];
+
+            for(var i = 0; i<headers.length; i++){
+                var hearder = document.createElement("th");
+                hearder.innerHTML = headers[i];
+                headerRow.appendChild(hearder);
+            }
+
+            array.appendChild(headerRow);
+            
+            var values = [name, last_name, etude];
+            var row = document.createElement("tr");
+            for(var i = 0; i<headers.length; i++){
+                var cell = document.createElement("td");
+                cell.innerHTML = values[i];
+                cell.style.border = "1px solid black";
+                row.appendChild(cell);
+            }
+
+            array.appendChild(row);
+            array.style.border = "1px solid black";
+            
+            document.body.appendChild(array);
+        }
+    </script>
+</body>
+</html>

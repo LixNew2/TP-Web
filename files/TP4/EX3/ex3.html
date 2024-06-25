@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Array</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <script>
+        function month(name_of_month, years, number_of_day, first_day_of_month){
+            var table = document.createElement("table");
+            var day = ["Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"]
+            var dayInMonth = number_of_day;
+            var firstDay = first_day_of_month - 1;
+
+            var headerRow = document.createElement("tr");
+            var headerCell = document.createElement("th");
+            headerCell.textContent = name_of_month + " " + years;
+            headerCell.setAttribute("colspan", "7");
+            headerRow.appendChild(headerCell);
+            table.appendChild(headerRow);
+
+            var header_day = document.createElement("tr"); // Creer la ligne du top
+            for(d in day){
+                var headerCell = document.createElement("th");
+                headerCell.textContent = day[d];
+                headerCell.style.background = ("#a3db51")
+                header_day.appendChild(headerCell); // Ajouter les jours de la semaine à la ligne du top
+            }
+            
+            table.appendChild(header_day); // Ajouter la ligne du top au tableau
+
+            var numRow = Math.ceil((firstDay + dayInMonth) / 7 ) // Calculer le nombre de ligne necessaire
+            
+            var day = 1;
+            for(var i = 0; i<numRow; i++){
+                var row = document.createElement("tr");
+                for(var j = 0; j<7; j++){
+                    var cell = document.createElement("td");
+                    
+                    if(day <= dayInMonth){
+                        if(i === 0 && j < firstDay){
+                            cell.textContent = "";
+                        } else{
+                            cell.textContent = day;
+                            day++;
+                        }
+                        row.appendChild(cell);
+                    }
+                    
+                    //Set color
+                    if(j === 5 || j === 6){
+                        cell.style.background = ("#d5efa8")
+                    }
+                }
+                table.appendChild(row);
+            }
+            document.body.appendChild(table);
+        }
+
+        month("Avril", 2024, 31, 3);
+        
+    </script>
+    <style>
+        table{
+            border-collapse: collapse;
+            align-items: center;
+            margin: auto;
+            text-align: center;
+        }
+        td{
+            width: 40px;
+            height: 30px;
+            align-content: center;
+            border: 1px solid black;
+            user-select: none;
+        }
+        th{
+            width: 40px;
+            height: 30px;
+            align-content: center;
+            border: 1px solid black;
+            user-select: none;
+        }
+    </style>
+</body>
+</html>
